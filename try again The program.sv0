@@ -1,0 +1,283 @@
+/*When a customer brings their purchases up to the cash register, 
+the bar code of the item will be scanned by your program. 
+When all the items are scanned, a receipt will be 
+printed out on the computer screen showing;
+
+"       Item's description, quantity and total price for each item purchased
+"       Amount of Tax owed (HST)
+"       Total cost of the sale
+(Look at some receipts to give you an idea for formatting)
+
+Mouse               12345 
+Keyboard            23456 
+Monitor             54321
+320 Gb HD           98765
+32 Gb USB Key       24680 
+Laser Printer       35791 
+Microphone          65789 
+i5-580 processor    43543 
+MSI Video Card      76543 
+ASUS Motherboard    55544
+End of Transaction  10101
+
+Mouse               
+Keyboard            
+Monitor             
+320 Gb HD           
+32 Gb USB Key       
+Laser Printer       
+Microphone          
+i5-580 processor    
+MSI Video Card      
+ASUS Motherboard    
+End of Transaction  
+
+25 Mouse               
+25 Keyboard            
+100 Monitor             
+50 320 Gb HD           
+30 32 Gb USB Key       
+100 Laser Printer       
+20 Microphone          
+150 i5-580 processor    
+70 MSI Video Card      
+90 ASUS Motherboard    
+ End of Transaction  
+
+e12345 
+e23456 
+e54321
+e98765
+e24680
+e35791
+e65789
+e43543
+e76543
+e55544
+e10101
+
+12345 
+23456 
+54321
+98765
+24680
+35791
+65789
+43543
+76543
+55544
+10101
+
+Refund e00000
+
+*/
+var tmoney:real
+var change:real
+var product:string
+var e12345:int:=0
+var e23456:int:=0
+var e54321:int:=0
+var e98765:int:=0
+var e24680:int:=0
+var e35791:int:=0
+var e65789:int:=0
+var e43543:int:=0
+var e76543:int:=0
+var e55544:int:=0
+var e10101:int:=0
+loop
+    loop
+	put "Please scan a product"
+	get product
+	exit when product="12345" or product="23456" or product="54321" or product="98765" or product="24680" or product="35791" or product="65789" or product="43543" or product="76543" or product="55544" or product="10101" or product="00000"
+	put "That is an invail product"
+    end loop
+    case product of
+	label "12345":
+	    e12345:=e12345+1
+	label "23456":
+	    e23456:=e23456+1
+	label "54321":
+	    e54321:=e54321+1
+	label "98765":
+	    e98765:=e98765+1
+	label "24680":
+	    e24680:=e24680+1
+	label "35791":
+	    e35791:=e35791+1
+	label "65789":
+	    e65789:=e65789+1
+	label "43543":
+	    e43543:=e43543+1
+	label "76543":
+	    e76543:=e76543+1
+	label "55544":
+	    e55544:=e55544+1
+	label "10101":
+	    e10101:=e10101+1
+	label "00000":
+	    put "Please Scan the product you want to refund"
+		get product
+		case product of                    
+		    label "12345":
+			if e12345<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e12345:=e12345-1
+			    put "You have refunded one mouse"
+			end if
+		    label "23456":
+			if e23456<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e23456:=e23456-1
+			    put "You have refunded one Keyboard"
+			end if
+		    label "54321":
+			if e54321<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e54321:=e54321-1
+			    put "You have refunded one monitor"
+			end if
+		    label "98765":
+			if e98765<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e98765:=e98765-1
+			    put "You have refunded one 320GbHD"
+			end if
+		    label "24680":
+			if e24680<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e24680:=e24680-1
+			    put "You have refunded one 32 Gb USB Key"
+			end if
+		    label "35791":
+			if e35791<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e35791:=e35791-1
+			    put "You have refunded one laser printer"
+			end if
+		    label "65789":
+			if e65789<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e65789:=e65789-1
+			    put "You have refunded one microphone"
+			end if
+		    label "43543":
+			if e43543<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e43543:=e43543-1
+			    put "You have refunded one i5-580 processor"
+			end if
+		    label "76543":
+			if e76543<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e76543:=e76543-1
+			    put "You have refunded one MSI Video Card"
+			end if
+		    label "55544":
+			if e55544<1 then
+			    put "You can not refund what you don't have"
+			else
+			    e55544:=e55544-1
+			    put "You have refunded one ASUS motherboard"
+			end if
+		    label "10101":
+			put "You can not Refund a 'finished Scanning'"
+		    label "00000":
+			put "You can not refund a refund"
+		    end case
+		end case
+    exit when e10101=1
+end loop
+if e12345>=1 then
+    put e12345, " Mouse: ", e12345*25:20:2
+end if
+if e23456>=1 then
+    put e23456, " Keyboard: ", e23456*25:17:2
+end if
+if e54321>=1 then
+    put e54321, " Monitor: ", e54321*100:18:2
+end if
+if e98765>=1 then
+    put e98765, " 320 GB HD: ", e98765*50:16:2
+end if
+if e24680>=1 then
+    put e24680, " 32 GB USB Key: ", e24680*30:12:2
+end if
+if e35791>=1 then
+    put e35791, " Laser Printer: ", e35791*100:12:2
+end if
+if e65789>=1 then
+    put e65789, " Microphone: ", e65789*20:15:2
+end if
+if e43543>=1 then
+    put e43543, " i5-580 processor: ", e43543*150:9:2
+end if
+if e76543>=1 then
+    put e76543, " MSI Video Card: ", e76543*70:11:2
+end if
+if e55544>=1 then
+    put e55544, " Asus Motherboard: ", e55544*90:9:2
+end if
+put ""
+put "Subtotal", e12345*25+e23456*25+e54321*100+e98765*50+e24680*30+e35791*100+e65789*20+e43543*150+e76543*70+e55544*90:21:2
+put ""
+put "HST(13%)", (e12345*25+e23456*25+e54321*100+e98765*50+e24680*30+e35791*100+e65789*20+e43543*150+e76543*70+e55544*90)*0.13:21:2
+put ""
+put "Total Due", (e12345*25+e23456*25+e54321*100+e98765*50+e24680*30+e35791*100+e65789*20+e43543*150+e76543*70+e55544*90)*1.13:20:2
+
+put "How much money are you going to pay.(This will tell us how much change to give back)"
+get tmoney
+change:=tmoney-(e12345*25+e23456*25+e54321*100+e98765*50+e24680*30+e35791*100+e65789*20+e43543*150+e76543*70+e55544*90)*1.13
+put "You will recieve:"
+if 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
